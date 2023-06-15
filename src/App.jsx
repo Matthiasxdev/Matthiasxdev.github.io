@@ -56,11 +56,11 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
           </span>
           <h1 className='animate-translate delay-0_5 gradient-text'>Matthias Vernette</h1>
           <p>
-            <b className='animate-opacity delay-1 orange'>a Software Engineer. </b>
-            <small className='animate-opacity delay-1_5 '>I have been working for 3 years on desktop softwares, 
+            <b className='animate-opacity delay-0_7 orange'>a Software Engineer. </b>
+            <small className='animate-opacity delay-1 '>I have been working for 3 years on desktop softwares, 
             now self-taught for a year in web development. </small> 
           </p>
-          <span className='animate-opacity delay-1_5'>
+          <span className='animate-opacity delay-1'>
             <button className='buttons'><GithubIcon/>Github</button>
             <button className='buttons'><LinkedinIcon/>Linkedin</button>
           </span>

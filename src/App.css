@@ -164,6 +164,9 @@ body {
 .delay-0_5{
   animation-delay: 0.5s;
 }
+.delay-0_7{
+  animation-delay: 0.7s;
+}
 .delay-1{
   animation-delay: 1s;
 }
