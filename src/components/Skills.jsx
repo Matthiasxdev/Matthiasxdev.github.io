@@ -1,5 +1,5 @@
 
-import {  useFrame, useThree } from '@react-three/fiber'
+import {  useFrame} from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
 import { useState } from 'react'
 import "./Skills.css"
@@ -8,11 +8,10 @@ export default function Skills() {
     // const group = useRef()
     const data = useScroll()
     const [display, setDisplay] = useState(false)
-    const { width,  height } = useThree((state) => state.viewport)
-    console.log("width from skills", width)
+    // const { width,  height } = useThree((state) => state.viewport)
     useFrame(() => {
         
-        if (display === false && data.range(1/2.5, 1 / 3) > 0){
+        if (display === false && data.range(1/4, 1 / 4) > 0){
             setDisplay(true)
         }
     })

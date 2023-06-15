@@ -1,14 +1,15 @@
 
 import * as THREE from 'three'
-import { useState, useRef } from 'react'
-import { Canvas, useThree, useFrame } from '@react-three/fiber'
-import { Scroll, Preload, ScrollControls } from '@react-three/drei'
+import { useState, useRef, useEffect } from 'react'
+import { useThree, useFrame } from '@react-three/fiber'
+import useWindowDimensions from '../hooks/WindowsDimensions'
+// import { Scroll, Preload, ScrollControls } from '@react-three/drei'
 
 import '../App.css'
 
 
 
-function Pyramid({ index, z, speed }) { 
+function Pyramid({ index, z, speed , oneside = false}) { 
     const ref = useRef()
     // Hold state for hovered and clicked events
     // const [hovered, hover] = useState(false)
@@ -24,13 +25,17 @@ function Pyramid({ index, z, speed }) {
     // const { nodes, materials } = useGLTF('/banana-v1-transformed.glb')
     // By the time we're here the model is loaded, this is possible through React suspense
     
-    const draw = THREE.MathUtils.randFloatSpread(1)
     let xValue = width/2;
-    draw >= 0 ? 
-    xValue = (width*0.5) - THREE.MathUtils.randFloat(0.1,1) * width * 0.15
-    : 
-    xValue = -(width*0.5) + THREE.MathUtils.randFloat(0.1,1) * width * 0.15
-    // console.log(index, xValue)
+
+    if (oneside) {
+      xValue = (width*0.5) - THREE.MathUtils.randFloat(0.1,1) * width * 0.15
+    }else{
+      const draw = THREE.MathUtils.randFloatSpread(1)
+      draw >= 0 ? 
+      xValue = (width*0.5) - THREE.MathUtils.randFloat(0.1,1) * width * 0.15
+      : 
+      xValue = -(width*0.5) + THREE.MathUtils.randFloat(0.1,1) * width * 0.15
+    }
     
     // Local component state, it is safe to mutate because it's fixed data
     const [data] = useState({
@@ -89,11 +94,30 @@ function Pyramid({ index, z, speed }) {
   }
   
   export default function Pyramids({ speed = 1, count = 200, depth = 350, easing = (x) => Math.sqrt(1 - Math.pow(x - 1, 2)) }) {
-
+    
+    const { width } = useWindowDimensions();
 
     return (
       <>
-      {Array.from({ length: count }, (_, i) => <Pyramid key={i} index={i} z={Math.round(easing(i / count) * depth)} speed={speed} /> /* prettier-ignore */)}
+      {width < 700 ?
+        Array.from(
+          { length: count }, (_, i) => 
+        <Pyramid 
+          key={i} 
+          index={i} 
+          z={Math.round(easing(i / count) * depth)} 
+          speed={speed} 
+          oneside={true}
+        />)
+      :
+      Array.from(
+          { length: count }, (_, i) => 
+        <Pyramid 
+          key={i} 
+          index={i} 
+          z={Math.round(easing(i / count) * depth)} 
+          speed={speed} 
+        />)}
       </>
     )
   }

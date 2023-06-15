@@ -22,9 +22,9 @@
 .cards{
     display: flex;
     width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
-    gap:10px;
+    flex-flow: wrap;
+    column-gap: 25px;
+    row-gap: 35px;
 }
 
   

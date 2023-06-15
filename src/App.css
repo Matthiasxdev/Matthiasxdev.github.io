@@ -65,12 +65,14 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
-  padding-left: 1em;;
+  min-height: 100vh;
+  height: auto;
+  padding-left: 1em;
   align-items: center;
   justify-content: center;
-  font-size: 35px;
+  font-size:clamp(0.7em, 3vh, 35px);
   font-weight:500 ;
+  /* border: 1px solid green; */
 }
 
 .layout{
@@ -78,7 +80,17 @@ body {
   flex-direction: column;
   justify-content: center;
   width: 65%;
-  /* border: 1px solid green; */
+}
+
+@media(max-width: 700px) {
+  .panel{
+    padding-left: 1em;
+    align-items: flex-start;
+  }
+  .layout{
+    width: 80%;
+  }
+  
 }
 
 .layout span{
@@ -93,7 +105,7 @@ body {
   overflow: hidden;
 }
 .title h2 em{
-  font-size:100px;
+  font-size:clamp(1.5em, 7vh, 100px);
 }
 
 .title span{
@@ -102,12 +114,13 @@ body {
 }
 
 .title h1{
-  font-size:100px;
+  font-size:clamp(2em, 10vh, 100px);
   font-weight: 500;
   line-height: normal;
 }
 
 .title p{
+  font-size:clamp(0.7em, 3vh, 35px);
   font-weight: 200;
   line-height: normal;
 }
@@ -124,7 +137,7 @@ body {
   border-radius: 25px;
   background-color: var(--purple);
   color: white;
-  font-size: 25px;
+  font-size:clamp(0.5em, 3vh, 25px);
   font-weight: 100;
   padding: 10px 15px;
 }
