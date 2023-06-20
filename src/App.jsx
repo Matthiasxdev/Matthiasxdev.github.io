@@ -8,6 +8,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import { Canvas} from '@react-three/fiber'
 import { Scroll, Preload, ScrollControls } from '@react-three/drei'
+import useWindowDimensions from './hooks/WindowsDimensions'
 // https://github.com/vanruesc/postprocessing
 // import Cubes from './components/Cubes'
 // import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
@@ -17,7 +18,13 @@ import { GithubIcon } from './svg/github'
 import { LinkedinIcon } from './svg/linkedin'
 
 
+
 function Scene({ speed = 1, count = 200, depth = 350}) {
+  const { width } = useWindowDimensions();
+
+  let nbPages = 3;
+  if (width > 700) {nbPages = 2.5}
+
   return(
 
     <Suspense fallback={null}>
@@ -30,7 +37,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
        fov: 20, near: 0.01, 
        far: depth + 15 
     }}>
-    <ScrollControls damping={0.2} pages={4} distance={0.5}>
+    <ScrollControls damping={0.2} pages={nbPages} distance={0.5}>
     <Scroll>
       {/* <color attach="background" args={['#ffbf40']} /> */}
       {/* <spotLight position={[10, 20, 10]} penumbra={1} intensity={3} color="orange" /> */}
@@ -40,7 +47,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
       <spotLight castShadow intensity={0.2} angle={Math.PI / 7} position={[150, 150, 250]} penumbra={1} shadow-mapSize={2048} />
       {/* Using cubic easing here to spread out objects a little more interestingly, i wanted a sole big object up front ... */}
       
-      <Pyramids speed={speed} count={count} />
+      <Pyramids speed={speed} count={count} width={width}/>
       
     {/** This is a helper that pre-emptively makes threejs aware of all geometries, textures etc
         By default threejs will only process objects if they are "seen" by the camera leading 
@@ -72,6 +79,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
             <Projects />
         </div>
       </div>
+      <footer></footer>
     </Scroll>
     <Preload />
     </ScrollControls>
@@ -84,6 +92,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
 function App () {
   const [offset, setOffset] = useState(0);
   const [speed, setSpeed] = useState(1);
+
 
   // useEffect(() => {
   //     const onScroll = () => {
@@ -137,7 +146,7 @@ function App () {
         </div>
       </div> */}
       <div className='scene'>
-        <Scene speed= {speed}/>
+        <Scene speed= {speed} />
       </div>
     </main>
     )

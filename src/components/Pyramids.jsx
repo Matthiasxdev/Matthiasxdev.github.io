@@ -1,8 +1,8 @@
 
 import * as THREE from 'three'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef} from 'react'
 import { useThree, useFrame } from '@react-three/fiber'
-import useWindowDimensions from '../hooks/WindowsDimensions'
+// import useWindowDimensions from '../hooks/WindowsDimensions'
 // import { Scroll, Preload, ScrollControls } from '@react-three/drei'
 
 import '../App.css'
@@ -93,9 +93,9 @@ function Pyramid({ index, z, speed , oneside = false}) {
     )
   }
   
-  export default function Pyramids({ speed = 1, count = 200, depth = 350, easing = (x) => Math.sqrt(1 - Math.pow(x - 1, 2)) }) {
+  export default function Pyramids({ speed = 1, count = 200, depth = 350, easing = (x) => Math.sqrt(1 - Math.pow(x - 1, 2)), width=1920 }) {
     
-    const { width } = useWindowDimensions();
+    // console.log(width)
 
     return (
       <>
@@ -122,36 +122,4 @@ function Pyramid({ index, z, speed , oneside = false}) {
     )
   }
 
-  
-
-  
-//   <Canvas camera={{ position: [0, 0, 20], fov: 15 }}>
-//   <ScrollControls damping={0.2} pages={3} distance={0.5}>
-//     <Lens>
-//       <Scroll>
-//         <Typography />
-//         <Images />
-//       </Scroll>
-//       <Scroll html>
-//         <div style={{ transform: 'translate3d(65vw, 192vh, 0)' }}>
-//           PMNDRS Pendant lamp
-//           <br />
-//           bronze, 38 cm
-//           <br />
-//           CHF 59.95
-//           <br />
-//         </div>
-//       </Scroll>
-//       {/** This is a helper that pre-emptively makes threejs aware of all geometries, textures etc
-//            By default threejs will only process objects if they are "seen" by the camera leading 
-//            to jank as you scroll down. With <Preload> that's solved.  */}
-//       <Preload />
-//     </Lens>
-//   </ScrollControls>
-// </Canvas>
-
-//   <Environment preset="sunset" />
-//         <EffectComposer multisampling={0}>
-//           <DepthOfField target={[0, 0, 60]} focalLength={0.4} bokehScale={14} height={700} />
-//         </EffectComposer> 
   
