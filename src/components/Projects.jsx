@@ -5,15 +5,22 @@ import { useState } from 'react'
 import "./Projects.css"
 import { NextIcon } from '../svg/next'
 import { PrismaIcon } from '../svg/prisma'
+import { ReactIcon } from '../svg/react'
 
 export default function Projects(width = 1920) {
     // const group = useRef()
     const data = useScroll()
     const [display, setDisplay] = useState(false)
     // const { width,  height } = useThree((state) => state.viewport)
+    let range = 1/2;
+    if (width <= 700) {
+        range = 1/4;
+    }else if(width < 1300){
+        range = 1/4;
+    }
     useFrame(() => {
         
-        if (display === false && data.range(1/2, 1 / 2) > 0){
+        if (display === false && data.range(range, 0) > 0){
             setDisplay(true)
         }
     })
@@ -24,25 +31,31 @@ export default function Projects(width = 1920) {
                 <h3 className='gradient-text-projects'>Projects</h3>
                 <div className='cards'>
                     <div className='card box__bg'>
-                        <h3>CoolSquad</h3>
+                        <h4>CoolSquad</h4>
                         <p>A marketplace website build with Next.js</p>
                         <div className='tags'>
-                            <span className='tag'><NextIcon/>Next.js</span>
-                            <span className='tag'><PrismaIcon/>Next.js</span>
+                            <div className='tag'><NextIcon/>Next.js</div>
+                            <div className='tag'><PrismaIcon/>Prisma</div>
                         </div>
                     </div>
                     <div className='card box__bg'>
-                        <h3>FreeCodeCamp</h3>
-                        <p>An educationnal plateform where I've been learning how to start coding modern web</p>
+                        <h4>FreeCodeCamp</h4>
+                        <p>An educational plateform where I have been learning how to code modern web app</p>
+                        <div className='tags'>
+                            <div className='tag'><ReactIcon/>React</div>
+                        </div>
                     </div>
                     <div className='card box__bg'>
-                        <h3>Stay tuned</h3>
-                        <p>More complete projects coming (React Native)</p>
+                        <h4>Stay tuned</h4>
+                        <p>More projects coming...</p>
+                        <div className='tags'>
+                            <div className='tag'><ReactIcon/>React Native</div>
+                        </div>
                     </div>
                 </div>
             </div>
             :
-            false
+            <div className='block-display-none'></div>
             }
         </>
     )

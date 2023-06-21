@@ -10,20 +10,20 @@ import { Canvas} from '@react-three/fiber'
 import { Scroll, Preload, ScrollControls } from '@react-three/drei'
 import useWindowDimensions from './hooks/WindowsDimensions'
 // https://github.com/vanruesc/postprocessing
-// import Cubes from './components/Cubes'
 // import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
 
-import './App.css'
 import { GithubIcon } from './svg/github'
 import { LinkedinIcon } from './svg/linkedin'
+import './App.css'
 
 
 
 function Scene({ speed = 1, count = 200, depth = 350}) {
   const { width } = useWindowDimensions();
-
-  let nbPages = 3;
-  if (width > 700) {nbPages = 2.5}
+console.log (width)
+  let nbPages = 2.5;
+  if (width <= 700) {nbPages = 4.5}
+  else if (width < 1310) {nbPages = 3}
 
   return(
 
@@ -75,7 +75,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
       </div>
       <div className="panel">
         <div className="layout">
-            <Skills />
+            <Skills width={width}/>
             <Projects />
         </div>
       </div>

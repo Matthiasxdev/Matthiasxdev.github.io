@@ -11,14 +11,20 @@ import { ThreeIcon } from '../svg/three'
 import { NextIcon } from '../svg/next'
 import "./Skills.css"
 
-export default function Skills() {
+export default function Skills({width}) {
     // const group = useRef()
     const data = useScroll()
     const [display, setDisplay] = useState(false)
+    let range = 1/2;
+    if (width <= 700) {
+        range = 1/4;
+    }else if(width < 1300){
+        range = 1/4;
+    }
     // const { width,  height } = useThree((state) => state.viewport)
     useFrame(() => {
         
-        if (display === false && data.range(1/2, 1 / 2) > 0){
+        if (display === false && data.range(range, 0) > 0){
             setDisplay(true)
         }
     })
@@ -31,7 +37,7 @@ export default function Skills() {
                     <div>
                         <h4>Front-end</h4>
                         <ul>
-                            <li><ReactIcon/>react</li>
+                            <li><ReactIcon gradient={true}/>react</li>
                             <li><TypescriptIcon/>typescript</li>
                             <li><ThreeIcon/>three.js</li>
                         </ul>
@@ -40,14 +46,14 @@ export default function Skills() {
                         <h4>Back-end</h4>
                         <ul>
                             <li><PostgresqlIcon/>postgreSQL</li>
-                            <li><PrismaIcon/>prisma</li>
+                            <li><PrismaIcon gradient={true}/>prisma</li>
                         </ul>
                     </div>
                     <div>
                         <h4>Others</h4>
                         <ul>
                             <li><GithubIcon gradient={true}/>git&github</li>
-                            <li><NextIcon/>next.js</li>
+                            <li><NextIcon gradient={true}/>next.js</li>
                         </ul>
                     </div>
                 </div>

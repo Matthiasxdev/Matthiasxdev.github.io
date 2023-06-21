@@ -52,7 +52,7 @@ ul {
 }
 
 .animate-translate { 
-    animation-delay: 0.1s;
+    /* animation-delay: 0.1s; */
     animation-duration: 0.7s;
     animation-name: animate-translate;
     animation-timing-function: ease-in-out;
