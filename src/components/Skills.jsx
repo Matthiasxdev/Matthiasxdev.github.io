@@ -15,7 +15,7 @@ export default function Skills({width}) {
     // const group = useRef()
     const data = useScroll()
     const [display, setDisplay] = useState(false)
-    let range = 1/2;
+    let range = 1/3;
     if (width <= 700) {
         range = 1/4;
     }else if(width < 1300){

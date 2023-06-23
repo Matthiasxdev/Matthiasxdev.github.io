@@ -34,6 +34,13 @@ em {
   font-style: normal;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;    
+  font-family: 'Poppins', sans-serif;
+}
+
 button:hover{
   cursor: pointer;
 }
@@ -232,3 +239,20 @@ body {
   -moz-text-fill-color: transparent;
 }
 
+footer {
+  clear: both;
+  position: relative;
+  height: 200px;
+  margin-top: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+@media (max-width : 700px) {
+  footer {
+    justify-content: flex-start;
+    margin-left: 1em ;
+    margin-top: 300px;
+  }
+}

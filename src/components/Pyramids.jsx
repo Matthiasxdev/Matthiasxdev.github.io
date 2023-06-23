@@ -28,13 +28,13 @@ function Pyramid({ index, z, speed , oneside = false}) {
     let xValue = width/2;
 
     if (oneside) {
-      xValue = (width*0.5) - THREE.MathUtils.randFloat(0.1,1) * width * 0.15
+      xValue = (width*0.5) - THREE.MathUtils.randFloat(0.1,1) * width * 0.10
     }else{
       const draw = THREE.MathUtils.randFloatSpread(1)
       draw >= 0 ? 
-      xValue = (width*0.5) - THREE.MathUtils.randFloat(0.1,1) * width * 0.15
+      xValue = (width*0.5) - THREE.MathUtils.randFloat(0.1,1) * width * 0.10
       : 
-      xValue = -(width*0.5) + THREE.MathUtils.randFloat(0.1,1) * width * 0.15
+      xValue = -(width*0.5) + THREE.MathUtils.randFloat(0.1,1) * width * 0.10
     }
     
     // Local component state, it is safe to mutate because it's fixed data

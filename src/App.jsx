@@ -68,7 +68,7 @@ console.log (width)
             now self-taught for a year in web development. </small> 
           </p>
           <span className='animate-opacity delay-1'>
-            <button className='buttons'><GithubIcon/>Github</button>
+            <a href="https://github.com/Matthiasxdev" target='blank'><button className='buttons'><GithubIcon/>Github</button></a>
             <button className='buttons'><LinkedinIcon/>Linkedin</button>
           </span>
         </div>
@@ -79,7 +79,7 @@ console.log (width)
             <Projects />
         </div>
       </div>
-      <footer></footer>
+      <footer>by Matthiasxdev - 2023</footer>
     </Scroll>
     <Preload />
     </ScrollControls>
