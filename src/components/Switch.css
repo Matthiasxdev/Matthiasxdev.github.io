@@ -1,0 +1,17 @@
+
+.switch-dark-light{
+    background-color: var(--main-color);
+    border-radius: 10px;
+    border: 1px solid #fff;
+    padding: 5px;
+    position: absolute;
+    top: 5vh;
+    right: 20vw;
+
+    display: flex;
+    gap:5px;
+
+  }
+  .switch-dark-light path{
+    fill: #fff
+  }

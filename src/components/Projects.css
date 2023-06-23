@@ -14,7 +14,7 @@
 
 .projects h4{
     font-weight: 300;
-    font-size:clamp(1em, 3.5vh, 35px);
+    font-size:clamp(1em, 3.5vh, 30px);
 }
 .cards{
     display: flex;
@@ -36,9 +36,16 @@
     border-radius: 25px;
     width: 100%;
     max-width: 400px;
-    height: auto;
+    height: fit-content;
     background-color: var(--main-color);
     border: 1px solid grey;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   .card  a{

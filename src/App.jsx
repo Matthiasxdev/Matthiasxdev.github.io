@@ -1,14 +1,14 @@
 
 import * as THREE from 'three'
-// import { useEffect } from 'react'
-import { Suspense, useState } from 'react'
-// import { useSprings, a } from '@react-spring/three'
+import { Suspense, useState , useContext} from 'react'
 import Pyramids from './components/Pyramids'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import { Canvas} from '@react-three/fiber'
 import { Scroll, Preload, ScrollControls } from '@react-three/drei'
 import useWindowDimensions from './hooks/WindowsDimensions'
+import { ThemeContext } from './contexts/theme-context'
+import { Switch } from './components/Switch'
 // https://github.com/vanruesc/postprocessing
 // import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
 
@@ -17,10 +17,16 @@ import { LinkedinIcon } from './svg/linkedin'
 import './App.css'
 
 
-
 function Scene({ speed = 1, count = 200, depth = 350}) {
+  const { theme, setTheme } = useContext(ThemeContext);
   const { width } = useWindowDimensions();
-console.log (width)
+
+  
+  const handleThemeChange = () => {
+    const isCurrentDark = theme === 'dark';
+    setTheme(isCurrentDark ? 'light' : 'dark');
+  };
+
   let nbPages = 2.5;
   if (width <= 700) {nbPages = 4.5}
   else if (width < 1310) {nbPages = 3}
@@ -39,7 +45,7 @@ console.log (width)
     }}>
     <ScrollControls damping={0.2} pages={nbPages} distance={0.5}>
     <Scroll>
-      {/* <color attach="background" args={['#ffbf40']} /> */}
+      <color attach="background" args={["black"]} />
       {/* <spotLight position={[10, 20, 10]} penumbra={1} intensity={3} color="orange" /> */}
       
       <pointLight intensity={0.5} />
@@ -56,7 +62,10 @@ console.log (width)
 
     <Scroll html>
       <div className="panel">
+      {/* <div className={`panel ${theme === 'dark' && 'dark-theme'}`}> */}
+      {/* <Switch handleThemeChange={handleThemeChange}/> */}
         <div className="layout title">
+          {/* <span className={`gradient-text ${theme === 'dark' && 'dark-theme'}`}> */}
           <span className="gradient-text">
             <h2><em>Hi,</em></h2>
             <h4>I'm-</h4>
@@ -90,65 +99,25 @@ console.log (width)
 }
 
 function App () {
-  const [offset, setOffset] = useState(0);
   const [speed, setSpeed] = useState(1);
 
-
-  // useEffect(() => {
-  //     const onScroll = () => {
-  //       offset < window.pageYOffset ?
-  //       setSpeed(1)
-  //       :
-  //       setSpeed(-1)
-  //       setOffset(window.pageYOffset);
-  //     } 
-  //     // clean up code
-  //     window.removeEventListener('scroll', onScroll);
-  //     window.addEventListener('scroll', onScroll, { passive: true });
-  //     // setSpeed(1)
-  //     return () => window.removeEventListener('scroll', onScroll);
-  // }, []);
-
-  // console.log(offset); 
+  const isBrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const getDefaultTheme = () => {
+    const localStorageTheme = localStorage.getItem('default-theme');
+    const browserDefault = isBrowserDefaultDark() ? 'dark' : 'light';
+    return localStorageTheme || browserDefault;
+  };
+  const [theme, setTheme] = useState(getDefaultTheme);
 
   return (
-    <main>
-      {/* <div className="page">
-        <div className="content">
-          <div className='title'>
-            <h2><em>Hi,</em> <span>I'm-</span></h2>
-            <h1 className="gradient-text">Matthias Vernette</h1>
-            <p>a Software Engineer</p>
-          </div>
-          <div className='section'>
-            <h2>Skills</h2>
-            <div className='skills'>
-              <span>
-                <h3>Front-end</h3>
-                <p>React</p>
-                <p>TypeScript</p>
-              </span>
-              
-              <span>
-                <h3>Back-end</h3>
-                <p>Prisma</p>
-                <p>PostgreSQL</p>
-                <p>Express</p>
-              </span>
-              
-              <span>
-                <h3>Other</h3>
-                <p>NextJS</p>
-                <p>Git&Github</p>
-              </span>
-            </div>
-          </div>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <main>
+        {/* <div className={`scene ${theme === 'dark' && 'dark-theme'}`}> */}
+        <div className="scene">
+          <Scene speed= {speed} />
         </div>
-      </div> */}
-      <div className='scene'>
-        <Scene speed= {speed} />
-      </div>
-    </main>
+      </main>
+    </ThemeContext.Provider>
     )
 }
 
