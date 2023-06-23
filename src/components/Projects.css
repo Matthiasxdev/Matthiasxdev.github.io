@@ -53,6 +53,7 @@
     font-weight: 200;
     font-style: var(--font-family);
     color: #fff;
+    
 }
 
   .card:hover{
@@ -92,6 +93,7 @@
     width: 400px;
     border-radius: 12px;
     overflow: hidden;
+    
   }
   
 
@@ -122,6 +124,7 @@
     height: calc(100% - 2px);
     background: var(--main-color);
     border-radius: 12px;
+
   }
   
   @keyframes bgRotate {

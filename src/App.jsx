@@ -43,7 +43,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
        fov: 20, near: 0.01, 
        far: depth + 15 
     }}>
-    <ScrollControls damping={0.2} pages={nbPages} distance={0.5}>
+    <ScrollControls damping={0.2} pages={nbPages} distance={0.2}>
     <Scroll>
       <color attach="background" args={["black"]} />
       {/* <spotLight position={[10, 20, 10]} penumbra={1} intensity={3} color="orange" /> */}
