@@ -24,7 +24,7 @@ export default function Skills({width}) {
     // const { width,  height } = useThree((state) => state.viewport)
     useFrame(() => {
         
-        if (display === false && data.range(range, 0) > 0){
+        if (display === false && data.range(range, range) > 0){
             setDisplay(true)
         }
     })

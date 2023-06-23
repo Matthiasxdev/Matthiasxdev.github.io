@@ -14,7 +14,7 @@
 
 .projects h4{
     font-weight: 300;
-    font-size:clamp(1em, 3.5vh, 30px);
+    font-size:clamp(1em, 3vh, 30px);
 }
 .cards{
     display: flex;
@@ -49,7 +49,7 @@
   }
 
   .card  a{
-    font-size:clamp(0.7em, 1.5vh, 25px);
+    font-size:clamp(1em, 2vh, 25px);
     font-weight: 200;
     font-style: var(--font-family);
     color: #fff;

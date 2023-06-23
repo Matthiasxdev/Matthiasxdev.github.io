@@ -22,7 +22,7 @@ export default function Projects(width = 1920) {
     }
     useFrame(() => {
         
-        if (display === false && data.range(range, 0) > 0){
+        if (display === false && data.range(range, range) > 0){
             setDisplay(true)
         }
     })
