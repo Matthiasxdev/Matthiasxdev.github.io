@@ -1,4 +1,4 @@
-.projects{
+.projects, .projects-dark{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,14 +8,25 @@
 }
 
 .projects h3{
-    font-weight: 300;
-    font-size:clamp(1em, 5vh, 50px);
+  font-weight: 500;
+  font-size:clamp(1em, 5vh, 50px);
+}
+
+.projects-dark h3{
+font-weight: 300;
+font-size:clamp(1em, 5vh, 50px);
 }
 
 .projects h4{
     font-weight: 300;
     font-size:clamp(1em, 3vh, 30px);
 }
+
+.projects-dark h4{
+  font-weight: 300;
+  font-size:clamp(1em, 3vh, 30px);
+}
+
 .cards{
     display: flex;
     justify-content: center;
@@ -37,8 +48,8 @@
     width: 100%;
     max-width: 400px;
     height: fit-content;
-    background-color: var(--main-color);
-    border: 1px solid grey;
+    background-color: white;
+    border: 2px solid var(--purple);
     
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -49,30 +60,36 @@
   }
 
   .card  a{
-    font-size:clamp(1em, 2vh, 25px);
-    font-weight: 200;
+    font-size:clamp(1em, 2vh, 22px);
+    font-weight: 300;
     font-style: var(--font-family);
-    color: #fff;
+    color: var;
     
 }
-
+  .card h4{
+    color: var(--purple);
+  }
   .card:hover{
-    border: 1px solid transparent;
+    border: 2px solid transparent;
   }
 
-  .card:hover .header_card use, .card:hover .header_card path{
-    fill: orange
+  .card .header_card use, .card .header_card path{
+    fill: purple
   }
+   .card:hover .header_card use, .card:hover .header_card path{
+    fill: var(--red)
+  } 
   .card:hover h4{
-    color: orange
-  }
+    color: var(--red);
+    font-weight:400
+  } 
   
-.gradient-text-projects {
+  .gradient-text-projects {
     /* Fallback: Set a background color. */
     background-color: var(--orange) ;
     
     /* Create the gradient. */
-    background-image: linear-gradient(45deg, var(--yellow), var(--orange));
+    background-image: linear-gradient(45deg, var(--red), var(--orange));
     
     /* Set the background size and repeat properties. */
     background-size: 100%;
@@ -86,6 +103,7 @@
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
   }
+  
 
   .box__bg {
     position: relative;
@@ -105,11 +123,11 @@
     top: -50%;
     width: 200%;
     height: 200%;
-    background-color: var(--main-color);
+    background-color: white;
     background-repeat: no-repeat;
     background-size: 100%100%, 50%50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(var(--main-color),orange);
+    background-image: linear-gradient(white,var(--red));
     animation: bgRotate 8s linear infinite;
 
   }
@@ -122,7 +140,7 @@
     top: 1px;
     width: calc(100% - 2px);
     height: calc(100% - 2px);
-    background: var(--main-color);
+    background: white;
     border-radius: 12px;
 
   }
@@ -167,7 +185,139 @@
     justify-content: center;
   }
 
+  .card:hover .tag{
+    background-color: var(--red);
+  }
+
   
   .block-display-none{
     height: 100vh;
   }
+
+
+  /*========== DarkMode =======*/
+  
+
+  .gradient-text-projects-dark {
+    /* Fallback: Set a background color. */
+    background-color: var(--orange) ;
+    
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, var(--yellow), var(--orange));
+    
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+.card-dark{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  text-align:justify;
+
+  border-radius: 25px;
+  width: 100%;
+  max-width: 400px;
+  height: fit-content;
+  background-color: var(--main-color);
+  border: 1px solid grey;
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.card-dark  a{
+  font-size:clamp(1em, 2vh, 22px);
+  font-weight: 300;
+  font-style: var(--font-family);
+  color: #fff;
+  
+}
+
+.card-dark:hover{
+  border: 1px solid transparent;
+}
+
+.card-dark:hover .header_card use, .card-dark:hover .header_card path{
+  fill: orange
+}
+.card-dark:hover h4{
+  color: orange
+}
+
+.box__bg-dark {
+  position: relative;
+  z-index: 0;
+  width: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  
+}
+
+
+.box__bg-dark:hover::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: var(--main-color);
+  background-repeat: no-repeat;
+  background-size: 100%100%, 50%50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(var(--main-color),orange);
+  animation: bgRotate 8s linear infinite;
+
+}
+
+.box__bg-dark::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 1px;
+  top: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  background: var(--main-color);
+  border-radius: 12px;
+
+}
+
+.tag-dark{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  gap:10px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--purple);
+  color: white;
+  font-size:clamp(0.6em, 2vh, 15px);
+  font-weight: 200;
+  padding: 10px 15px;
+
+}
+
+.tag-dark svg{
+  width:24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

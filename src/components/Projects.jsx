@@ -1,19 +1,21 @@
 
-import {  useFrame, useThree } from '@react-three/fiber'
+import {  useFrame } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
-import { useState } from 'react'
+import { useState , useContext} from 'react'
 import "./Projects.css"
 import { NextIcon } from '../svg/next'
 import { PrismaIcon } from '../svg/prisma'
 import { ReactIcon } from '../svg/react'
 import { FCCIcon } from '../svg/freecodecamp'
 import { CoolSquadIcon } from '../svg/coolsquad'
+import {  } from 'react'
+import { ThemeContext } from '../contexts/theme-context'
 
-export default function Projects(width = 1920) {
+export default function Projects({width, theme }) {
     // const group = useRef()
     const data = useScroll()
     const [display, setDisplay] = useState(false)
-    // const { width,  height } = useThree((state) => state.viewport)
+    
     let range = 1/3;
     if (width <= 700) {
         range = 1/4;
@@ -29,21 +31,21 @@ export default function Projects(width = 1920) {
     return (
         <>
             {display ?
-            <div className='projects animate-translate'>
-                <h3 className='gradient-text-projects'>Projects</h3>
+            <div className={`animate-translate projects${theme === 'dark' ? '-dark' : ''}`}>
+                <h3 className={`gradient-text-projects${theme === 'dark' ? '-dark' : ''}`}>Projects</h3>
                 <div className='cards'>
-                    <button className='card box__bg'>
+                    <button className={`card${theme === 'dark' ? '-dark' : ''}  box__bg${theme === 'dark' ? '-dark' : ''}`}>
                     <a href="/"> 
                         <div className='header_card'><CoolSquadIcon/><h4>CoolSquad</h4></div>
                         <p>CoolSquad is a Saas build with Next.js. It connects professionals in the world of events.
                          It works like a market place, where suppliers offer their services and products on the site, and where potential customers can access a wide range of choices according to several themes, cities and other criteria.</p>
                         <div className='tags'>
-                            <div className='tag'><NextIcon/>Next.js</div>
-                            <div className='tag'><PrismaIcon/>Prisma</div>
+                            <div className={`tag${theme === 'dark' ? '-dark' : ''}`}><NextIcon/>Next.js</div>
+                            <div className={`tag${theme === 'dark' ? '-dark' : ''}`}><PrismaIcon/>Prisma</div>
                         </div>
                     </a>
                     </button>
-                    <button className='card box__bg'>
+                    <button className={`card${theme === 'dark' ? '-dark' : ''}  box__bg${theme === 'dark' ? '-dark' : ''}`}>
                         <a href="https://www.freecodecamp.org/Matthiasxdev" target='blank'> 
                             <div className='header_card'><h4>FreeCodeCamp</h4><FCCIcon/></div>
                             <p>FreeCodeCamp is an educational platform where I learned to code modern web applications. 
@@ -53,7 +55,7 @@ export default function Projects(width = 1920) {
                             </div>
                         </a>
                     </button>
-                    <button className='card box__bg'>
+                    <button className={`card${theme === 'dark' ? '-dark' : ''}  box__bg${theme === 'dark' ? '-dark' : ''}`}>
                     <a href="/"> 
                         <div className='header_card'><h4>Stay tuned</h4></div>
                         <p>More projects coming...</p>

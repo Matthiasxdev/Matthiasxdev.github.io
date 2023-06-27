@@ -27,6 +27,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
     setTheme(isCurrentDark ? 'light' : 'dark');
   };
 
+
   let nbPages = 2.5;
   if (width <= 700) {nbPages = 4.5}
   else if (width < 1310) {nbPages = 3}
@@ -45,7 +46,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
     }}>
     <ScrollControls damping={0.2} pages={nbPages} distance={0.4}>
     <Scroll>
-      <color attach="background" args={["black"]} />
+      {/* <color attach="background" args={["orange"]} /> */}
       {/* <spotLight position={[10, 20, 10]} penumbra={1} intensity={3} color="orange" /> */}
       
       <pointLight intensity={0.5} />
@@ -63,29 +64,31 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
     <Scroll html>
       <div className="panel">
       {/* <div className={`panel ${theme === 'dark' && 'dark-theme'}`}> */}
-      {/* <Switch handleThemeChange={handleThemeChange}/> */}
+      <Switch handleThemeChange={handleThemeChange}/>
         <div className="layout title">
           {/* <span className={`gradient-text ${theme === 'dark' && 'dark-theme'}`}> */}
-          <span className="gradient-text">
+          <span className={`gradient-text${theme === 'dark' ? '-dark' : ''}`}>
             <h2><em>Hi,</em></h2>
             <h4>I'm-</h4>
           </span>
-          <h1 className='animate-translate delay-0_5 gradient-text'>Matthias Vernette</h1>
+          <h1  className={`animate-translate delay-0_5 gradient-text${theme === 'dark' ? '-dark' : ''}`}>
+          Matthias Vernette</h1>
           <p>
-            <b className='animate-opacity delay-0_7 orange'>a Software Engineer. </b>
+            <b className={`animate-opacity delay-0_7 job${theme === 'dark' ? '-dark' : ''}`}>a Software Engineer. </b>
             <small className='animate-opacity delay-1 '>I have been working for 3 years on desktop softwares, 
             now self-taught for a year in web development. </small> 
           </p>
           <span className='animate-opacity delay-1'>
-            <a href="https://github.com/Matthiasxdev" target='blank'><button className='buttons'><GithubIcon/>Github</button></a>
-            <button className='buttons'><LinkedinIcon/>Linkedin</button>
+            <a href="https://github.com/Matthiasxdev" target='blank'>
+            <button className={`buttons${theme === 'dark' ? '-dark' : ''}`}><GithubIcon/>Github</button></a>
+            <button className={`buttons${theme === 'dark' ? '-dark' : ''}`}><LinkedinIcon/>Linkedin</button>
           </span>
         </div>
       </div>
       <div className="panel">
         <div className="layout">
-            <Skills width={width}/>
-            <Projects />
+            <Skills width={width} theme={theme}/>
+            <Projects width={width} theme={theme}/>
         </div>
       </div>
       <footer>by Matthiasxdev - 2023</footer>
@@ -112,8 +115,8 @@ function App () {
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <main>
-        {/* <div className={`scene ${theme === 'dark' && 'dark-theme'}`}> */}
-        <div className="scene">
+        <div className={`scene ${theme === 'dark' && 'dark-theme'}`}>
+        {/* <div className="scene"> */}
           <Scene speed= {speed} />
         </div>
       </main>

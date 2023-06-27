@@ -1,9 +1,11 @@
 
 .switch-dark-light{
+    overflow: hidden;
+    height: 45px;
     background-color: var(--main-color);
     border-radius: 10px;
     border: 1px solid #fff;
-    padding: 5px;
+    padding: 5px 10px ;
     position: absolute;
     top: 5vh;
     right: 20vw;
@@ -14,4 +16,83 @@
   }
   .switch-dark-light path{
     fill: #fff
+  }
+
+  .switch-frame{
+    position: absolute;
+    background-color: transparent;
+    border-radius: 7px;
+    transform: translateX(-17%);
+    border:1px solid white;
+    width: 35px;
+    height: 35px;
+  }
+  .sunIcon{
+    transform: translateY(-15%) translateX(15%);
+  }
+
+
+  /* ============================== */
+  label {
+    width:70px;
+    height:40px;
+    position: absolute;
+    top: 5vh;
+    right: 20vw;
+    display: block;
+    background: #ebebeb;
+    border-radius: 20px;
+    /* box-shadow: inset 0px 2px 7px rgba(0,0,0,0.4), inset 0px -2px 7px rgba(255,255,255,0.4); */
+    cursor: pointer;
+  }
+  label:after {
+    content: "";
+    width:25px;
+    height: 25px;
+    position: absolute;
+    top:8px;
+    left:10px;
+    background: linear-gradient(180deg,var(--yellow),var(--orange));
+    border-radius: 25px;
+    box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+  }
+  input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  input:checked + label {
+    background: #242424;
+  }
+  input:checked + label:after {
+    left:55px;
+    transform: translateX(-90%);
+    background: linear-gradient(180deg,#777,#3a3a3a);
+  }
+  label, label:after {
+    transition: 0.3s
+  }
+
+  label svg {
+    position: absolute;
+    width: 120px;
+    z-index: 100;
+  }
+  label svg.sun {
+    left:0px;
+    fill:#fff;
+    transition: 0.3s;
+    transform: translateY(-15%) translateX(15%);
+  }
+  label svg.moon {
+    left:35px;
+    fill:#7e7e7e;
+    transition: 0.3s;
+  }
+  input:checked + label svg.sun {
+    fill:#7e7e7e;
+  }
+  input:checked + label svg.moon {
+    fill:#fff;
   }

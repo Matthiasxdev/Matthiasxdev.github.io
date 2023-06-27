@@ -1,7 +1,8 @@
 
 import * as THREE from 'three'
-import { useState, useRef} from 'react'
+import { useState, useRef, useContext} from 'react'
 import { useThree, useFrame } from '@react-three/fiber'
+import { ThemeContext } from '../contexts/theme-context'
 // import useWindowDimensions from '../hooks/WindowsDimensions'
 // import { Scroll, Preload, ScrollControls } from '@react-three/drei'
 
@@ -10,6 +11,12 @@ import '../App.css'
 
 
 function Pyramid({ index, z, speed , oneside = false}) { 
+    
+    const { theme } = useContext(ThemeContext);
+    const  colorsArray = ['#B83B5E']
+    // let Pcolor = '#B83B5E'
+    let Pcolor = colorsArray[Math.floor(Math.random() * colorsArray.length)]
+    if (theme === 'dark'){Pcolor = "orange"}
     const ref = useRef()
     // Hold state for hovered and clicked events
     // const [hovered, hover] = useState(false)
@@ -78,7 +85,7 @@ function Pyramid({ index, z, speed , oneside = false}) {
     return (
       <mesh ref={ref}>
         <coneGeometry args={[1,1.5,4]} />
-        <meshStandardMaterial color={'orange'} />
+        <meshStandardMaterial color={Pcolor} />
       </mesh> 
       // <mesh
       //   ref={ref}
