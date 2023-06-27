@@ -7,7 +7,7 @@ export const Switch = ({handleThemeChange, theme}) => {
     
   return (
     <>
-    <input type="checkbox" id="darkmode-toggle" onChange={handleThemeChange}/>
+    <input type="checkbox" id="darkmode-toggle" onChange={handleThemeChange} defaultChecked={theme === 'dark'}/>
     <label for="darkmode-toggle" >
       {/* <SunIcon/>
       <MoonIcon/> */}

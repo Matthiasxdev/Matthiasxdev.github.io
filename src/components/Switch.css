@@ -73,7 +73,7 @@
   label, label:after {
     transition: 0.3s
   }
-
+/* 
   label svg {
     position: absolute;
     width: 120px;
@@ -95,4 +95,4 @@
   }
   input:checked + label svg.moon {
     fill:#fff;
-  }
+  } */
