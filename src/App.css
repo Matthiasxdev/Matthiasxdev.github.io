@@ -315,6 +315,12 @@ footer {
   justify-content: center;
 }
 
+@media (max-width : 1300px) {
+  footer {
+    margin-top: 175px;
+  }
+}
+
 @media (max-width : 700px) {
   footer {
     justify-content: flex-start;

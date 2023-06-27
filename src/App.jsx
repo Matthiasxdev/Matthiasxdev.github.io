@@ -77,13 +77,16 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
             <b className={`animate-opacity delay-0_7 job${theme === 'dark' ? '-dark' : ''}`}>
             a Software Engineer. 
             </b>
-            <small className='animate-opacity delay-1 '>I have been working for 3 years on desktop softwares, 
+            <small className='animate-opacity delay-1 '> I have been working for 3 years on desktop softwares, 
             now self-taught for a year in web development. </small> 
           </p>
           <span className='animate-opacity delay-1'>
             <a href="https://github.com/Matthiasxdev" target='blank'>
-            <button className={`buttons${theme === 'dark' ? '-dark' : ''}`}><GithubIcon/>Github</button></a>
+            <button className={`buttons${theme === 'dark' ? '-dark' : ''}`}><GithubIcon/>Github</button>
+            </a>
+            <a href="">
             <button className={`buttons${theme === 'dark' ? '-dark' : ''}`}><LinkedinIcon/>Linkedin</button>
+            </a>
           </span>
         </div>
       </div>
