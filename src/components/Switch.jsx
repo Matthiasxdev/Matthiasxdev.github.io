@@ -1,14 +1,14 @@
 
-import { MoonIcon } from "../svg/moon"
-import { SunIcon } from "../svg/sun"
+// import { MoonIcon } from "../svg/moon"
+// import { SunIcon } from "../svg/sun"
 import "./Switch.css"
 
 export const Switch = ({handleThemeChange, theme}) => {
-    
+    // console.log("theme =", theme)
   return (
     <>
     <input type="checkbox" id="darkmode-toggle" onChange={handleThemeChange} defaultChecked={theme === 'dark'}/>
-    <label for="darkmode-toggle" >
+    <label htmlFor="darkmode-toggle" >
       {/* <SunIcon/>
       <MoonIcon/> */}
     </label>

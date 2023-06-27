@@ -64,7 +64,7 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
     <Scroll html>
       <div className="panel">
       {/* <div className={`panel ${theme === 'dark' && 'dark-theme'}`}> */}
-      <Switch handleThemeChange={handleThemeChange}/>
+      <Switch handleThemeChange={handleThemeChange} theme={theme}/>
         <div className="layout title">
           {/* <span className={`gradient-text ${theme === 'dark' && 'dark-theme'}`}> */}
           <span className={`gradient-text${theme === 'dark' ? '-dark' : ''}`}>
@@ -74,7 +74,9 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
           <h1  className={`animate-translate delay-0_5 gradient-text${theme === 'dark' ? '-dark' : ''}`}>
           Matthias Vernette</h1>
           <p>
-            <b className={`animate-opacity delay-0_7 job${theme === 'dark' ? '-dark' : ''}`}>a Software Engineer. </b>
+            <b className={`animate-opacity delay-0_7 job${theme === 'dark' ? '-dark' : ''}`}>
+            a Software Engineer. 
+            </b>
             <small className='animate-opacity delay-1 '>I have been working for 3 years on desktop softwares, 
             now self-taught for a year in web development. </small> 
           </p>
