@@ -9,6 +9,8 @@ import { Scroll, Preload, ScrollControls } from '@react-three/drei'
 import useWindowDimensions from './hooks/WindowsDimensions'
 import { ThemeContext } from './contexts/theme-context'
 import { Switch } from './components/Switch'
+import MailTo from './components/Mail'
+
 // https://github.com/vanruesc/postprocessing
 // import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
 
@@ -80,14 +82,17 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
             <small className='animate-opacity delay-1 '> I have been working for 3 years on desktop softwares, 
             now self-taught for a year in web development. </small> 
           </p>
-          <span className='animate-opacity delay-1'>
+          <div className='animate-opacity delay-1 contacts'>
             <a href="https://github.com/Matthiasxdev" target='blank'>
             <button className={`buttons${theme === 'dark' ? '-dark' : ''}`}><GithubIcon/>Github</button>
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/matthias-vernette/" target='blank'>
             <button className={`buttons${theme === 'dark' ? '-dark' : ''}`}><LinkedinIcon/>Linkedin</button>
             </a>
-          </span>
+            <MailTo email="matthias.vernette@gmail.com">
+              <button className={`buttons${theme === 'dark' ? '-dark' : ''}`}>Contact</button>
+            </MailTo>
+          </div>
         </div>
       </div>
       <div className="panel">
