@@ -35,7 +35,7 @@ export default function Projects({width, theme }) {
                 <h3 className={`gradient-text-projects${theme === 'dark' ? '-dark' : ''}`}>Projects</h3>
                 <div className='cards'>
                     <button className={`card${theme === 'dark' ? '-dark' : ''}  box__bg${theme === 'dark' ? '-dark' : ''}`}>
-                        <a href="https://uniteam-nine.vercel.app/" target='blank'> 
+                        <a href="https://coolsquad.vercel.app/" target='blank'> 
                             <div className='header_card'><CoolSquadIcon/><h4>CoolSquad</h4></div>
                             <p>CoolSquad is a Saas build with Next.js. It connects professionals in the world of events.
                             It works like a market place, where suppliers offer their services and products on the site, and where potential customers can access a wide range of choices according to several themes, cities and other criteria.</p>

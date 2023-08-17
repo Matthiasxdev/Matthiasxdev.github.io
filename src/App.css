@@ -136,7 +136,12 @@ body {
   font-size:clamp(1.5em, 7vh, 100px);
 }
 
-.title span{
+.firstline{
+  display: flex;
+  align-items: baseline;
+}
+
+.title div{
   display: flex;
   max-width: 100%;
   gap: clamp(0.5em,2vw,20px);

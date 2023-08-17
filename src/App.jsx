@@ -69,15 +69,15 @@ function Scene({ speed = 1, count = 200, depth = 350}) {
       <Switch handleThemeChange={handleThemeChange} theme={theme}/>
         <div className="layout title">
           {/* <span className={`gradient-text ${theme === 'dark' && 'dark-theme'}`}> */}
-          <span className={`gradient-text${theme === 'dark' ? '-dark' : ''}`}>
+          <div className={`firstline gradient-text${theme === 'dark' ? '-dark' : ''}`}>
             <h2><em>Hi,</em></h2>
             <h4>I'm-</h4>
-          </span>
+          </div>
           <h1  className={`animate-translate delay-0_5 gradient-text${theme === 'dark' ? '-dark' : ''}`}>
           Matthias Vernette</h1>
           <p>
             <b className={`animate-opacity delay-0_7 job${theme === 'dark' ? '-dark' : ''}`}>
-            a Software Engineer. 
+            a Full-Stack developer. 
             </b>
             <small className='animate-opacity delay-1 '> I have been working for 3 years on desktop softwares, 
             now self-taught for a year in web development. </small> 
