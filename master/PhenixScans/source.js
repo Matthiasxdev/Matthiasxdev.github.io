@@ -18704,7 +18704,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PhenixScans = exports.PhenixScansInfo = void 0;
 const types_1 = require("@paperback/types");
 const MangaReader_1 = require("../templates/MangaReader/MangaReader");
-const DOMAIN = 'https://phenixscans.fr';
+const DOMAIN = 'https://phenix-scans.com/';
 exports.PhenixScansInfo = {
     version: "1.1",
     language: "FR",
